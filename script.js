@@ -1,8 +1,7 @@
 //Giga Pet - Pablo P. Torres
 // My two unique jQuery methods are: .html() and .addClass()
 
-$(function () {
-  // Makes sure that your function is called once all the DOM elements of the page are ready to be used.
+$(function () { // Makes sure that your function is called once all the DOM elements of the page are ready to be used.
 
   // Called function to update the name, happiness, and weight of our pet in our HTML
   checkAndUpdatePetInfoInHtml();
@@ -56,17 +55,17 @@ var pet_messages = {
     "Please give me a bath and a hug!",
   ],
 };
-// ---------- Sad sound effect (extra feature) ----------
+// ---------- Sad sound effect---extra feature- ----------
 // new Audio(...) loads a sound file so we can play it with JavaScript.
 var whimper_sound = new Audio("audio/Sad_Dog_sound.MP3");
 
-// Remembers if Apollo was already sad after the last click,
+// If Apollo was already sad after the last click,
 // so the sound only plays at the moment he BECOMES sad
-// (not again on every click while he stays sad).
+// not again on every click while he stays sad.
 var was_sad = false;
 
 // Plays the whimper sound when Apollo's happiness drops below 20.
-// Uses the same number as updatePetImage(), so the sound plays
+// I use the same number as updatePetImage(), so the sound plays
 // at the same time his picture changes to sad.
 function playSadSound() {
   var is_sad = pet_info.happiness < 20;
@@ -163,10 +162,10 @@ function updatePetInfoInHtml() {
 // Apollo's picture changes depending on how clean and how happy he is,
 // so the player can see how he feels without reading the numbers.
 // This function is called every time a button is clicked
-// (from checkAndUpdatePetInfoInHtml), so the picture is always up to date.
+// from checkAndUpdatePetInfoInHtml, so the picture is always up to date.
 //
 // .attr("src", ...) changes the "src" attribute of the <img>, which tells
-// the browser which image file to show. We also change the "alt" text
+// the browser which image file to show. I also change the "alt" text
 // so it still describes the picture for screen readers.
 function updatePetImage() {
   // The order of these checks matters: the first one that is true wins.
@@ -203,7 +202,7 @@ function chooseMessage(action) {
   } else if (pet_info.happiness < 20) {
     return getRandomMessage(pet_messages.sad);
   }
-  // Apollo is clean and happy, so use the normal message for this button.
+  // Apollo is clean and happy, so it uses the normal message for this button.
   // pet_messages[action] picks the array by name, e.g. pet_messages["treat"].
   return getRandomMessage(pet_messages[action]);
 }
@@ -237,7 +236,7 @@ function showPetMessage(message) {
   $(".husky-message-text").addClass("pop");
 
   // An animation only plays when the class is added.
-  // So after 400 milliseconds when the animation is done,
+  // So after 400 milliseconds, when the animation is done,
   // I remove the classes. That way they can be added again next time the user clicks a button.
   setTimeout(function () {
     $(".pet-image").removeClass("hop");
